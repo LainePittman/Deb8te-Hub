@@ -14,5 +14,12 @@ Coding Language Being Used: Python
 -----------------------------------------------------
 Techniques: We will be using a database and a framework; however,
 at the time we are unaware of what exactly will be used
+-----------------------------------------------------
+Objectives: To create a fully functional social media application that will allow its users to interact by creating posts, making friends, and uploading to a timeline.
+-----------------------------------------------------
+Features - Users will have the ability to:
+* Create/delete posts and comments on other user's posts
+* Add/remove friends
+* Upload to a timeline for anyone to see
 
 https://docs.google.com/document/d/16iwFlI2ZgkdXCfLPw1wu3x09L28OeC0T/edit?usp=sharing&ouid=106709538712253693452&rtpof=true&sd=true  //  link for Intro to SE SRS Template
