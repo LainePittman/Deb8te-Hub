@@ -22,7 +22,7 @@ Features - Users will have the ability to:
 * Add/remove friends
 * Upload to a timeline for anyone to see
 
-This is a test statement to see how branching and pull requests work for github
+Altered test statement to test out push command in GIT Bash
 
 https://docs.google.com/document/d/16iwFlI2ZgkdXCfLPw1wu3x09L28OeC0T/edit?usp=sharing&ouid=106709538712253693452&rtpof=true&sd=true  //  link for Intro to SE SRS Template
 https://realpython.com/django-social-network-1/#step-1-set-up-the-base-project // link for creating a social website using python and a web framework named django
