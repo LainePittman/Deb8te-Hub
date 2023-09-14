@@ -15,7 +15,7 @@ Coding Language Being Used: Python
 Techniques: We will be using a database and a framework; however,
 at the time we are unaware of what exactly will be used
 -----------------------------------------------------
-Objectives: To create a fully functional social media application that will allow its users to interact by creating posts, making friends, and uploading to a timeline.
+Objectives: To create a fully functional social media application that will allow its users to interact by creating posts, writing comments on other user's posts, making friends, and uploading to a timeline.
 -----------------------------------------------------
 Features - Users will have the ability to:
 * Create/delete posts and comments on other user's posts
