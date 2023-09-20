@@ -1,0 +1,58 @@
+Git Bash is a useful command-line-interface (CLI) combining a bash-like 
+environment with git repository commands
+
+Link to install Git Bash: 
+https://git-scm.com/downloads
+
+Laine's Github & Git Bash video recommendation: 
+https://www.youtube.com/watch?v=tRZGeaHPoaw
+
+Quick Git Bash Review
+---------------------
+
+Source: https://www.geeksforgeeks.org/working-on-git-bash/
+
+Git Bash Commands
+git init: Initializes the new git repository.
+git clone: “git clone“ command is used to clone the repositories which are already available in the remote repository.
+git add: Files present in the working area will move to the staging area.
+git commit: Files that are available in the staging area will be committed to the local repository.
+git status: This command shows the status of the working tree and the staging area.
+git log: “git log” command will help you to see the logs of all the commits made.
+git branch: Creates a new branch.
+git merge: For merging the changes from one branch to another branch.
+git config: “git config” will help you to configure the username and email id.
+git tag: It will display the all tags.
+
+1. Use git config to set user name and email for commits:
+git config --global user.name "FIRST_NAME LAST_NAME"
+git config --global user.email "MY_NAME@example.com"
+
+2. Use git init to create local git repository to enable use of git commands:
+git init
+creates .git file in current directory
+
+3. Establish connection to remote repository (Deb8te Hub) via git remote add:
+git remote add origin "github_link"
+origin is the commonly used name for remote repo connections
+
+4. Use git pull to download remote repository's current snapshot:
+git pull origin <branch>
+
+5. Changes can be made to files through shell text editor nano:
+nano <file>
+
+6. Make commits of changes made with git commit:
+git commit -m "commit_message"
+
+7. Push commits to remote repository via git push:
+git push -u origin <branch>
+<branch> should be local branch with commits to merge
+
+Best practice for push to pull request
+Create remote repo branch to make desired changes
+Pull repo
+Make changes
+Commit and push to branch made
+Create pull request through GitHub website interface
+
