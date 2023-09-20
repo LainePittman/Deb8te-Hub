@@ -25,31 +25,54 @@ git config: “git config” will help you to configure the username and email i
 git tag: It will display the all tags.
 
 1. Use git config to set user name and email for commits:
+
 git config --global user.name "FIRST_NAME LAST_NAME"
 git config --global user.email "MY_NAME@example.com"
 
 2. Use git init to create local git repository to enable use of git commands:
+
 git init
+
+Notes:
+
 creates .git file in current directory
 
 3. Establish connection to remote repository (Deb8te Hub) via git remote add:
+
 git remote add origin "github_link"
+
+Notes:
+
 origin is the commonly used name for remote repo connections
 
 4. Use git pull to download remote repository's current snapshot:
+
 git pull origin <branch>
 
 5. Changes can be made to files through shell text editor nano:
+
 nano <file>
 
+   Files can be added to tracked files list through git add:
+
+git add <file>
+
 6. Make commits of changes made with git commit:
+
 git commit -m "commit_message"
 
 7. Push commits to remote repository via git push:
-git push -u origin <branch>
-<branch> should be local branch with commits to merge
 
-Best practice for push to pull request
+git push -u origin <branch>
+
+Notes:
+
+<branch> should target branch in remote repository
+if unable to push, might have to create another local branch since local main
+branch is protected
+
+Best practice for push to pull request:
+
 Create remote repo branch to make desired changes
 Pull repo
 Make changes
