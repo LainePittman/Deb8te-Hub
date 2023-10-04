@@ -1,0 +1,57 @@
+h1 {
+
+    color:black;
+    text-align:center;
+    font-family: Arial, Verdana, Tahoma, sans-serif;
+
+}
+
+hr {
+
+    border: 2px solid black;
+
+}
+
+h3 {
+
+    color: black;
+    text-align: justify;
+    font-family: Arial, Verdana, Tahoma, sans-serif;
+
+}
+
+li {
+
+    list-style-type: square;
+    color: black;
+    text-align: justify;
+    font-family: Arial, Verdana, Tahoma, sans-serif;
+
+}
+
+a {
+
+    text-align: justify;
+    font-family: Arial, Verdana, Tahoma, sans-serif;
+    color: blue;
+    text-decoration: none;
+
+}
+
+a:visited {
+
+    color: green;
+
+}
+
+a:hover {
+
+    color:black;
+
+}
+
+li.nested {
+
+    list-style-type: circle;
+
+}

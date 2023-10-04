@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link rel="stylesheet" type="text/css" href="static_files_move_later/user_feed_style.css">
+    <title>Deb8teHub - User Feed</title>
+
+</head>
+
+<body>
+
+    <!--Deb8teHub feed header-->
+
+    <h1>User.usrname - User.userID - Feed</h1><hr><br><br>
+
+    <!--User posts list-->
+
+    <ul>
+
+        <li><strong>User.posts.at(0)</strong></li><br>
+
+            <ul>
+
+                <li class="nested">User.posts.at(0).user</li>
+                <li class="nested">User.posts.at(0).content</li>
+                <li class="nested">User.posts.at(0).likes.count()</li>
+                <li class="nested">User.posts.at(0).comments</li>
+
+            </ul>
+
+        <li><strong>User.posts.at(n)</strong></li><br>
+
+        <ul>
+
+            <li class="nested">User.posts.at(n).user</li>
+            <li class="nested">User.posts.at(n).content</li>
+            <li class="nested">User.posts.at(n).likes.count()</li>
+            <li class="nested">User.posts.at(n).comments</li>
+
+        </ul>
+
+    </ul>
+
+</body>
+
+</html>

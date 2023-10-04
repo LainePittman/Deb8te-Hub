@@ -1,0 +1,34 @@
+h1 {
+
+    color:black;
+    text-align:center;
+    font-family: Arial, Verdana, Tahoma, sans-serif;
+
+}
+
+hr {
+
+    border: 2px solid black;
+
+}
+
+input[type="text"], input[type="password"] {
+
+    width: 25%;
+    margin-bottom: 10px;
+
+}
+
+input[type="submit"], input[type="reset"] {
+
+    width:15%;
+    margin-left: 5px;
+
+}
+
+div {
+
+    display: block;
+    text-align: center;
+
+}

@@ -1,0 +1,46 @@
+h1 {
+
+    color:black;
+    text-align:center;
+    font-family: Arial, Verdana, Tahoma, sans-serif;
+
+}
+
+hr {
+
+    border: 2px solid black;
+
+}
+
+li {
+
+    list-style-type: none;
+    color: black;
+    text-align: justify;
+    font-family: Arial, Verdana, Tahoma, sans-serif;
+    font-size:35px;
+
+}
+
+li.nested {
+
+    margin-bottom:10px;
+    font-size:20px;
+
+}
+
+/*ul sets 1st level unordered list margin setting*/
+
+ul {
+
+    margin-left:37%;
+
+}
+
+/*ul ul sets 2nd level unordered list margin setting*/
+
+ul ul {
+
+    margin-left: 15px;
+
+}

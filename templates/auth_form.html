@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<header>
+
+    <link rel="stylesheet" type="text/css" href="static_files_move_later/auth_form_style.css">
+    <title>Deb8teHub - Login/Sign Up</title>
+
+</header>
+
+<body>
+
+    <!--Deb8teHub login/signup header-->
+
+    <h1>Deb8teHub - Login/Sign Up</h1><hr><br><br>
+
+    <!--Login/Sign Up Form Options-->
+    <!--Same form used for login/sign up since only user provided info is username and password-->
+    <!--POST method used since transmitting password and don't want to display in URL-->
+    <!--GET method would produce query string in URL of form: ?attr1=val1&attr2=val2...-->
+
+    <div>
+
+        <form method="POST">
+
+            Username: <input type="text" required name="user"><br><br>
+            Password: <input type="password" required name="pass"><br><br>
+            <input type="submit">
+            <input type="reset">
+
+        </form>
+
+    </div>
+
+
+</body>
+
+</html>
