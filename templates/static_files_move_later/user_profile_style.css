@@ -1,0 +1,45 @@
+h1 {
+
+    color:black;
+    text-align:center;
+    font-family: Arial, Verdana, Tahoma, sans-serif;
+
+}
+
+hr {
+
+    border: 2px solid black;
+
+}
+
+h3 {
+
+    color: black;
+    text-align: justify;
+    font-family: Arial, Verdana, Tahoma, sans-serif;
+
+}
+
+li {
+
+    list-style-type: square;
+    color: black;
+    text-align: justify;
+    font-family: Arial, Verdana, Tahoma, sans-serif;
+
+}
+
+li.nested {
+
+    list-style-type: none;
+    font-weight: normal;
+    margin-bottom:10px;
+
+}
+
+img {
+
+    margin-top:10px;
+    margin-bottom:10px;
+
+}
