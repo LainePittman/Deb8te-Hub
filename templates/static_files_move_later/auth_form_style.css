@@ -1,3 +1,9 @@
+body {
+
+    background-color: #4E9C68;
+    
+}
+
 h1 {
 
     color:black;
@@ -16,6 +22,14 @@ input[type="text"], input[type="password"] {
 
     width: 25%;
     margin-bottom: 10px;
+    border: 3px solid black;
+
+}
+
+span {
+
+    font-family: Arial, Verdana, Tahoma, sans-serif;
+    font-weight: bold;
 
 }
 
@@ -23,6 +37,8 @@ input[type="submit"], input[type="reset"] {
 
     width:15%;
     margin-left: 5px;
+    font-weight: bold;
+
 
 }
 

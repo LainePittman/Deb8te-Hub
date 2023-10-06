@@ -1,3 +1,9 @@
+body {
+
+background-color: #4E9C68;
+
+}
+
 h1 {
 
     color:black;
@@ -26,7 +32,7 @@ hr {
 
 h3 {
 
-    color: black;
+    color:black;
     text-align: justify;
     font-family: Arial, Verdana, Tahoma, sans-serif;
 
@@ -43,6 +49,7 @@ p {
 li {
 
     list-style-type: square;
+    color: black;
 
 }
 
@@ -50,19 +57,13 @@ a {
 
     text-align: justify;
     font-family: Arial, Verdana, Tahoma, sans-serif;
-    color: blue;
+    color: #003E15;
     text-decoration: none;
-
-}
-
-a:visited {
-
-    color: green;
 
 }
 
 a:hover {
 
-    color:black;
+    color:#297C45;
 
 }
