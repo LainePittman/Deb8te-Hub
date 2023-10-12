@@ -1,6 +1,6 @@
 body {
 
-    background-color: #4E9C68;
+    background-color: #8FA0C1;
     
 }
 
@@ -22,11 +22,11 @@ input[type="text"], input[type="password"] {
 
     width: 25%;
     margin-bottom: 10px;
-    border: 3px solid black;
+    border: 1px solid black;
 
 }
 
-span {
+span.form {
 
     font-family: Arial, Verdana, Tahoma, sans-serif;
     font-weight: bold;
@@ -46,5 +46,22 @@ div {
 
     display: block;
     text-align: center;
+
+}
+
+a {
+
+    text-align: justify;
+    font-family: Arial, Verdana, Tahoma, sans-serif;
+    font-size: large;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+
+}
+
+a:hover {
+
+    color:#2D4471;
 
 }

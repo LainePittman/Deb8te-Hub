@@ -1,6 +1,6 @@
 body {
 
-    background-color: #4E9C68;
+    background-color: #8FA0C1;
     
 }
 
@@ -48,5 +48,23 @@ ul {
 ul ul {
 
     margin-left: 15px;
+
+}
+
+a {
+
+    text-align: justify;
+    font-family: Arial, Verdana, Tahoma, sans-serif;
+    font-size: large;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    padding-left:44%;
+
+}
+
+a:hover {
+
+    color:#2D4471;
 
 }
