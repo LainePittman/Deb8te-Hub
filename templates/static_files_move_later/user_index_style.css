@@ -55,3 +55,15 @@ li.nested {
     list-style-type: circle;
 
 }
+
+footer {
+
+    font-family: Arial, Verdana, Tahoma, sans-serif;
+    color: black;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+
+}
