@@ -1,51 +1,96 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-    <link rel="stylesheet" type="text/css" href="static_files_move_later/user_feed_style.css">
-    <title>Deb8teHub - User Feed</title>
-
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Deb8teHub - User Feed</title>
+	<!--Bootstrap CSS-->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="./static_files_move_later/user_feed.css">
 </head>
-
 <body>
 
-    <!--Deb8teHub feed header-->
 
-    <h1>User.usrname - User.userID - Feed</h1><hr><br><br>
+	<!--Bootstrap Navbar-->
+	<nav class="navbar navbar-expand-lg nav-cust">
+	  <div class="container-fluid">
+	    <a class="navbar-brand" href="#">Deb8teHub - User.usrname</a>
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+	        <li class="nav-item">
+	          <a class="nav-link" aria-current="page" href="user_index.html">Home</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="user_profile.html">Profile</a>
+	        </li>
+			<li class="nav-item">
+	          <a class="nav-link" href="index.html">Logout</a>
+	        </li>
+	      </ul>
+	      <form class="d-flex" role="search">
+	        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+	        <button class="btn btn-outline" type="submit">Search</button>
+	      </form>
+	    </div>
+	  </div>
+	</nav>
 
-    <!--User posts list-->
+	<br>
 
-    <ul>
+	<!--Bootstrap Row Container-->
+	<div class="container">
+	  <div class="row">
+	    <div class="col-xl-12 d-flex justify-content-center text-center">
 
-        <li><strong>User.posts.at(0)</strong></li><br>
+			<div class="card" style="width: 30rem;">
+			  <div class="card-body">
+			    <h5 class="card-title">User.friends.at(0).posts.at(0).content</h5>
+			  </div>
+			  <ul class="list-group list-group-flush">
+			    <li class="list-group-item"><strong>Poster: </strong> User.friends.at(0).posts.at(0).user </li>
+			    <li class="list-group-item"><strong>Time Posted: </strong> User.friends.at(0).posts.at(0).timestamp</li>
+			    <li class="list-group-item"><strong>Comments: </strong> User.friends.at(0).posts.at(0).comments.count()</li>
+			    <li class="list-group-item"><strong>Shares: </strong> User.friends.at(0).posts.at(0).shares.count()</li>
+			  </ul>
+			  <div class="card-body">
+			    <a href="#" class="card-link">Like</a>
+			    <a href="#" class="card-link">Comment</a>
+			    <a href="#" class="card-link">Share</a>
+			  </div>
+			</div>
 
-            <ul>
+	    </div>
+	    <div class="col-xl-12 d-flex justify-content-center text-center">
 
-                <li class="nested">User.posts.at(0).user</li>
-                <li class="nested">User.posts.at(0).content</li>
-                <li class="nested">User.posts.at(0).likes.count()</li>
-                <li class="nested">User.posts.at(0).comments</li>
+			<div class="card" style="width: 30rem;">
+			  <div class="card-body">
+			    <h5 class="card-title">User.friends.at(n).posts.at(n).content</h5>
+			  </div>
+			  <ul class="list-group list-group-flush">
+			    <li class="list-group-item"><strong>Poster: </strong> User.friends.at(n).posts.at(n).user </li>
+			    <li class="list-group-item"><strong>Time Posted: </strong> User.friends.at(n).posts.at(n).timestamp</li>
+			    <li class="list-group-item"><strong>Comments: </strong> User.friends.at(n).posts.at(n).comments.count()</li>
+			    <li class="list-group-item"><strong>Shares: </strong> User.friends.at(n).posts.at(n).shares.count()</li>
+			  </ul>
+			  <div class="card-body">
+			    <a href="#" class="card-link">Like</a>
+			    <a href="#" class="card-link">Comment</a>
+			    <a href="#" class="card-link">Share</a>
+			  </div>
+			</div>
 
-            </ul>
+	    </div>
+	  </div>
+	</div>
 
-        <li><strong>User.posts.at(n)</strong></li><br>
 
-        <ul>
+	<footer>Deb8teHub &copy;</footer>
 
-            <li class="nested">User.posts.at(n).user</li>
-            <li class="nested">User.posts.at(n).content</li>
-            <li class="nested">User.posts.at(n).likes.count()</li>
-            <li class="nested">User.posts.at(n).comments</li>
-
-        </ul>
-
-    </ul><br><br><br>
-
-    <a href="user_index.html">Go Back</a>
-
-    <footer>Deb8ate-Hub &copy;</footer>
+	<!--Bootstrap JS-->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 
 </body>
-
 </html>

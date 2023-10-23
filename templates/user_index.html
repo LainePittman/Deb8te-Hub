@@ -1,64 +1,133 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-    <link rel="stylesheet" type="text/css" href="static_files_move_later/user_index_style.css">
-    <title>Deb8teHub - User Home</title>
-
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Deb8teHub - User Home</title>
+	<!--Bootstrap CSS-->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="./static_files_move_later/user_index.css">
 </head>
-
 <body>
 
-    <!--Deb8teHub welcome message-->
 
-    <h1>Welcome to Deb8teHub User.usrname</h1><hr><br><br>
+	<!--Bootstrap Navbar-->
+	<nav class="navbar navbar-expand-lg nav-cust">
+	  <div class="container-fluid">
+	    <a class="navbar-brand" href="#">Deb8teHub - User.usrname</a>
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+	        <li class="nav-item">
+	          <a class="nav-link" aria-current="page" href="user_index.html">Home</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="user_profile.html">Profile</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="user_feed.html">Feed</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="index.html">Logout</a>
+	        </li>
+	      </ul>
+	      <form class="d-flex" role="search">
+	        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+	        <button class="btn btn-outline" type="submit">Search</button>
+	      </form>
+	    </div>
+	  </div>
+	</nav>
 
-    <!--Deb8teHub developments-->
+	<br>
+
+	<div class="dev">
+
+		<!--Bootstrap Badge-->
+		<h2>Deb8teHub Developments <span class="badge bg-primary">New</span></h2>
+
+		<!--Bootstrap List Group-->
+		<ul class="list-group">
+		  <li class="list-group-item d-flex justify-content-between align-items-start">
+		    <div class="ms-2 me-auto">
+		      <div class="fw-bold">Total Registered Deb8ters</div>
+		      Website.users.count()
+		    </div>
+		    <span class="badge bg-primary rounded-pill">99</span>
+		  </li>
+		  <li class="list-group-item d-flex justify-content-between align-items-start">
+		    <div class="ms-2 me-auto">
+		      <div class="fw-bold">Total Deb8te Posts</div>
+		      Website.users.posts.count()
+		    </div>
+		    <span class="badge bg-primary rounded-pill">99</span>
+		  </li>
+		  <li class="list-group-item d-flex justify-content-between align-items-start">
+		    <div class="ms-2 me-auto">
+		      <div class="fw-bold">Improved Website Concurrency</div>
+		    </div>
+		  </li>
+		   <li class="list-group-item d-flex justify-content-between align-items-start">
+		    <div class="ms-2 me-auto">
+		      <div class="fw-bold">Additional Commenting Features</div>
+		    </div>
+		  </li>
+		</ul>
+
+	</div>
+
+	<br>
+
+	<div class="dev">	
+
+		<!--Bootstrap Badge-->
+		<h2>Deb8teHub Developments <span class="badge bg-secondary">New</span></h2>
+
+		<!--Bootstrap Custom Content List Group-->
+		<div class="list-group">
+		  <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+		    <div class="d-flex w-100 justify-content-between">
+		      <h5 class="mb-1">User Friend Count</h5>
+		      <small>now</small>
+		    </div>
+		    <p class="mb-1">User.friends.count()</p>
+		    <small>Updated Friend Count</small>
+		  </a>
+		  <a href="#" class="list-group-item list-group-item-action">
+		    <div class="d-flex w-100 justify-content-between">
+		      <h5 class="mb-1">User Like Count</h5>
+		      <small class="text-body-secondary">now</small>
+		    </div>
+		    <p class="mb-1">User.posts.likes.count()</p>
+		    <small class="text-body-secondary">Updated Like Count</small>
+		  </a>
+		  <a href="#" class="list-group-item list-group-item-action">
+		    <div class="d-flex w-100 justify-content-between">
+		      <h5 class="mb-1">Updated Comment Count</h5>
+		      <small class="text-body-secondary">now</small>
+		    </div>
+		    <p class="mb-1">User.posts.comments.count()</p>
+		    <small class="text-body-secondary">Updated Commment Count</small>
+		  </a>
+		  <a href="#" class="list-group-item list-group-item-action">
+		    <div class="d-flex w-100 justify-content-between">
+		      <h5 class="mb-1">Updated Share Count</h5>
+		      <small class="text-body-secondary">now</small>
+		    </div>
+		    <p class="mb-1">User.posts.shares.count()</p>
+		    <small class="text-body-secondary">Updated Share Count</small>
+		  </a>
+		</div>
+
+	</div>
 
 
-    <h3>Deb8teHub Developments</h3>
+	<footer>Deb8teHub &copy;</footer>
 
-    <ul>
-
-        <li><strong>Deb8teHub Stats</strong></li><br>
-
-            <ul>
-
-                <li class="nested">Total Registered Deb8ters = Website.users.count()</li>
-                <li class="nested">Total Deb8te Posts = Website.users.posts.count()</li>
-
-            </ul>
-
-    </ul>
-
-    <ul>
-
-        <li><strong>New Feature Drop</strong></li><br>
-
-            <ul>
-
-                <li class="nested">Increased Website Concurrency</li>
-                <li class="nested">Additional Commenting Features</li>
-
-            </ul>
-
-    </ul>
-
-    <!--User personal links-->
-
-    <h3>Personal Links</h3>
-
-    <ul>
-
-        <li><a href="user_profile.html">User Profile Page</a></li>
-        <li><a href="user_feed.html">User Feed Page</a></li>
-        <li><a href="index.html">Logout</a></li>
-
-    </ul>
-
-    <footer>Deb8ate-Hub &copy;</footer>    
+	<!--Bootstrap JS-->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 
 </body>
-
 </html>

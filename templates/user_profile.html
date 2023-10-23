@@ -1,81 +1,74 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-    <link rel="stylesheet" type="text/css" href="static_files_move_later/user_profile_style.css">
-    <title>Deb8teHub - User Profile</title>
-
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Deb8teHub - User Profile</title>
+	<!--Bootstrap CSS-->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="./static_files_move_later/user_profile.css">
 </head>
-
 <body>
 
-    <!--Deb8teHub profile header-->
 
-    <h1>User.usrname - User.userID</h1><hr><br><br>
+	<!--Bootstrap Navbar-->
+	<nav class="navbar navbar-expand-lg nav-cust">
+	  <div class="container-fluid">
+	    <a class="navbar-brand" href="#">Deb8teHub - User.usrname</a>
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+	        <li class="nav-item">
+	          <a class="nav-link" aria-current="page" href="user_index.html">Home</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="user_feed.html">Feed</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="index.html">Logout</a>
+	        </li>
+	      </ul>
+	      <form class="d-flex" role="search">
+	        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+	        <button class="btn btn-outline" type="submit">Search</button>
+	      </form>
+	    </div>
+	  </div>
+	</nav>
 
-    <!--Deb8teHub profile details/options-->
+	<br><br>
 
-    <h3>User Profile Details</h3>
+	<!--Bootstrap Row Container-->
+	<div class="container">
+	  <div class="row">
+	    <div class="col-xl-12 d-flex justify-content-center text-center">
 
-    <ul>
+				<!--Bootstrap Kitchen Sink Card-->
+				<div class="card" style="width: 36rem;">
+				  <img src="./static_files_move_later/profile.png" class="card-img-top" alt="Profile">
+				  <div class="card-body">
+				    <h5 class="card-title">User.usrname</h5>
+				  </div>
+				  <ul class="list-group list-group-flush">
+				    <li class="list-group-item"><strong>Password: </strong> User.password.securestring()</li>
+				    <li class="list-group-item"><strong>Friend Count: </strong> User.friends.count()</li>
+				    <li class="list-group-item"><strong>Post Count: </strong> User.posts.count()</li>
+				  </ul>
+				  <div class="card-body">
+				    <a href="#" class="card-link">Manage Details</a>
+				  </div>
+				</div>
 
-        <li><strong>Change Profile Image:</strong></li>
+	    </div>
+	  </div>
+	</div>
 
-            <ul>
+	<footer>Deb8teHub &copy;</footer>
 
-                <li class="nested"> 
-                    <img src="data:image/jpeg;base64,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" alt="Default Profile Pic" width="100px" height="100px">
-                </li>
-
-            </ul>
-
-        <li><strong>Change Username:</strong></li><br>
-
-            <ul>
-
-                <li class="nested">
-                    User.usrname
-                </li>
-
-            </ul>
-
-        <li><strong>Change Password:</strong></li><br>
-
-            <ul>
-
-                <li class="nested"> 
-                    User.password.securestring()
-                </li>
-
-            </ul>
-
-        <li><strong>Friend Count<strong></li><br>
-
-            <ul>
-
-                <li class="nested"> 
-                    User.friends.count()
-                </li>
-
-            </ul>
-
-        <li><strong>Post Count<strong></li><br>
-
-            <ul>
-
-                <li class="nested"> 
-                    User.posts.count()
-                </li>
-
-            </ul>
-
-    </ul><br><br>
-
-    <a href="user_index.html">Go Back</a>
-
-    <footer>Deb8ate-Hub &copy;</footer>
+	<!--Bootstrap JS-->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 
 </body>
-
 </html>
