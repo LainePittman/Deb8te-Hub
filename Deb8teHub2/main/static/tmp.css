@@ -1,0 +1,49 @@
+body {
+
+    background-color: #91A0BE;
+
+}
+
+h1 {
+
+    background-color: #3D5583;
+    margin-bottom:0.75rem;
+    padding: 0.5rem;
+    color: white;
+
+}
+
+li {
+
+    list-style:none;
+    margin-bottom: 0.75rem;
+
+}
+
+a {
+
+    text-decoration: none;
+    background-color: white;
+    padding: 0.25rem;
+    color: #3D5583;
+
+}
+
+.hidden {
+
+    display: none;
+
+}
+
+.hidden a {
+
+    background-color: #3D5583;
+    color: white;
+
+}
+
+.hover_hidden:hover + .hidden {
+
+    display: flex;
+
+}
