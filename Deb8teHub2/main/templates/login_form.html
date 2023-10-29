@@ -40,7 +40,6 @@
 
 	<!--Bootstrap Form-->
 	<div class="dev">
-
 		<div>
 			{% for message in messages %}
 			<h5 class="badge bg-danger">{{message}}</h5>
@@ -52,14 +51,9 @@
 		<form action="" method="POST">
 		<!--Needed when using POST-->
 		{% csrf_token %}
-
 		  <div class="mb-3">
 			<label for="exampleInputUsername1" class="form-label">Username</label>
 			<input type="text" name="username" class="form-control" id="exampleInputUsername1" required>
-		  </div>
-		  <div class="mb-3">
-		    <label for="exampleInputEmail1" class="form-label">Email address</label>
-		    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
 		  </div>
 		  <div class="mb-3">
 		    <label for="exampleInputPassword1" class="form-label">Password</label>
@@ -71,7 +65,7 @@
 
 		<br>
 
-		<a href="login_form.html">Already have an account? Login here</a>
+		<a href="auth_form.html">Don't have an account? Sign up here</a>
 	</div>
 
 	<footer>Deb8teHub &copy;</footer>
