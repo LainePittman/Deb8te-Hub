@@ -4,8 +4,12 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Profile(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     userID = models.IntegerField()
+    friend_count = models.IntegerField(default=0)
+    like_count = models.IntegerField(default=0)
+    comment_count = models.IntegerField(default=0)
+    shares_count = models.IntegerField(default=0)
 
     def __str__(self):
         return self.user.username

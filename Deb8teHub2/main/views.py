@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 from .models import Profile
 
 # Create your views here.
@@ -34,29 +35,41 @@ def auth(request):
                 user.save()
 
                 #log user in and redirect to user index page
+                user_login = authenticate(username=username,password=password)
+                login(request,user_login)
 
                 #create profile object for new user
                 user_model = User.objects.get(username=username)
                 new_profile = Profile.objects.create(user=user_model, userID=user_model.id)
                 new_profile.save()
-                return redirect('login_form.html')
+                return redirect('user_index.html')
 
                 
 
     else:
         return render(request, "auth_form.html", {})
 
+@login_required(login_url='login_form.html')
 def tmp(request):
     return render(request, "tmp_page_dir.html", {})
 
+#@login_required ensures only logged in users can access page
+#redirects to login_form.html if not logged in already
+@login_required(login_url='login_form.html')
 def usr_home(request):
-    return render(request, "user_index.html", {})
+    users_count = User.objects.count()
+    user_prof = Profile.objects.get(user=request.user)
+    return render(request, "user_index.html", {'user_prof':user_prof,'users_count':users_count})
 
+@login_required(login_url='login_form.html')
 def usr_prof(request):
-    return render(request, "user_profile.html", {})
+    user_prof = Profile.objects.get(user=request.user)
+    return render(request, "user_profile.html", {'user_prof':user_prof})
 
+@login_required(login_url='login_form.html')
 def usr_feed(request):
-    return render(request, "user_feed.html", {})
+    user_prof = Profile.objects.get(user=request.user)
+    return render(request, "user_feed.html", {'user_prof':user_prof})
 
 def signin(request):
 
@@ -82,3 +95,8 @@ def signin(request):
 
     else:
         return render(request, "login_form.html", {})
+
+@login_required(login_url='login_form.html')    
+def leave(request):
+    logout(request)
+    return redirect('login_form.html')

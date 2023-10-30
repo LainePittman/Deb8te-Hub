@@ -10,4 +10,5 @@ urlpatterns = [
     path("user_profile.html", views.usr_prof, name='usr_prof'),
     path("user_feed.html", views.usr_feed, name='usr_feed'),
     path("login_form.html", views.signin, name='login'),
+    path('logout', views.leave, name='logout'),
 ]

@@ -18,7 +18,7 @@
 	<!--Bootstrap Navbar-->
 	<nav class="navbar navbar-expand-lg nav-cust">
 	  <div class="container-fluid">
-	    <a class="navbar-brand" href="#">Deb8teHub - User.usrname</a>
+	    <a class="navbar-brand" href="#">Deb8teHub - {{user.username}}</a>
 	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	      <span class="navbar-toggler-icon"></span>
 	    </button>
@@ -31,7 +31,7 @@
 	          <a class="nav-link" href="user_feed.html">Feed</a>
 	        </li>
 	        <li class="nav-item">
-	          <a class="nav-link" href="index.html">Logout</a>
+	          <a class="nav-link" href="logout">Logout</a>
 	        </li>
 	      </ul>
 	      <form class="d-flex" role="search">
@@ -53,12 +53,13 @@
 				<div class="card" style="width: 36rem;">
 				  <img src="../static/profile.png" class="card-img-top" alt="Profile">
 				  <div class="card-body">
-				    <h5 class="card-title">User.usrname</h5>
+				    <h5 class="card-title">{{user.username}}</h5>
 				  </div>
 				  <ul class="list-group list-group-flush">
-				    <li class="list-group-item"><strong>Password: </strong> User.password.securestring()</li>
-				    <li class="list-group-item"><strong>Friend Count: </strong> User.friends.count()</li>
-				    <li class="list-group-item"><strong>Post Count: </strong> User.posts.count()</li>
+				    <li class="list-group-item"><strong>Friend Count: </strong> {{user_prof.friend_count}}</li>
+				    <li class="list-group-item"><strong>Like Count: </strong> {{user_prof.like_count}}</li>
+					<li class="list-group-item"><strong>Comment Count: </strong> {{user_prof.comment_count}}</li>
+					<li class="list-group-item"><strong>Share Count: </strong> {{user_prof.shares_count}}</li>
 				  </ul>
 				  <div class="card-body">
 				    <a href="#" class="card-link">Manage Details</a>
