@@ -1,3 +1,4 @@
+{% extends "base.html" %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,15 +7,18 @@
 	<title>Deb8teHub - User Home</title>
 	<!--Bootstrap CSS-->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="./static_files_move_later/user_index.css">
+	{% block style_link %}
+	<link rel="stylesheet" type="text/css" href="../static/user_index.css">
+	{% endblock style_link %}
 </head>
 <body>
 
+	{% block page_content %}
 
 	<!--Bootstrap Navbar-->
 	<nav class="navbar navbar-expand-lg nav-cust">
 	  <div class="container-fluid">
-	    <a class="navbar-brand" href="#">Deb8teHub - User.usrname</a>
+	    <a class="navbar-brand" href="#">Deb8teHub - {{user.username}}</a>
 	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	      <span class="navbar-toggler-icon"></span>
 	    </button>
@@ -30,7 +34,7 @@
 	          <a class="nav-link" href="user_feed.html">Feed</a>
 	        </li>
 	        <li class="nav-item">
-	          <a class="nav-link" href="index.html">Logout</a>
+	          <a class="nav-link" href="logout">Logout</a>
 	        </li>
 	      </ul>
 	      <form class="d-flex" role="search">
@@ -53,25 +57,23 @@
 		  <li class="list-group-item d-flex justify-content-between align-items-start">
 		    <div class="ms-2 me-auto">
 		      <div class="fw-bold">Total Registered Deb8ters</div>
-		      Website.users.count()
+		      {{users_count}}
 		    </div>
-		    <span class="badge bg-primary rounded-pill">99</span>
 		  </li>
 		  <li class="list-group-item d-flex justify-content-between align-items-start">
 		    <div class="ms-2 me-auto">
 		      <div class="fw-bold">Total Deb8te Posts</div>
 		      Website.users.posts.count()
 		    </div>
-		    <span class="badge bg-primary rounded-pill">99</span>
 		  </li>
 		  <li class="list-group-item d-flex justify-content-between align-items-start">
 		    <div class="ms-2 me-auto">
-		      <div class="fw-bold">Improved Website Concurrency</div>
+		      <div class="fw-bold">Improved Front End Design</div>
 		    </div>
 		  </li>
 		   <li class="list-group-item d-flex justify-content-between align-items-start">
 		    <div class="ms-2 me-auto">
-		      <div class="fw-bold">Additional Commenting Features</div>
+		      <div class="fw-bold">Additonal Authentication Features</div>
 		    </div>
 		  </li>
 		</ul>
@@ -89,35 +91,31 @@
 		<div class="list-group">
 		  <a href="#" class="list-group-item list-group-item-action" aria-current="true">
 		    <div class="d-flex w-100 justify-content-between">
-		      <h5 class="mb-1">User Friend Count</h5>
-		      <small>now</small>
+		      <h5 class="mb-1">Discourse:</h5>
 		    </div>
-		    <p class="mb-1">User.friends.count()</p>
-		    <small>Updated Friend Count</small>
+		    <p class="mb-1">"written or spoken communication or debate"</p>
+		    <small>Word of the Day</small>
 		  </a>
 		  <a href="#" class="list-group-item list-group-item-action">
 		    <div class="d-flex w-100 justify-content-between">
-		      <h5 class="mb-1">User Like Count</h5>
-		      <small class="text-body-secondary">now</small>
+		      <h5 class="mb-1">11 Professional Debate Tips:</h5>
 		    </div>
-		    <p class="mb-1">User.posts.likes.count()</p>
-		    <small class="text-body-secondary">Updated Like Count</small>
+		    <p class="mb-1">"https://www.indeed.com/career-advice/career-development/debate-techniques"</p>
+		    <small class="text-body-secondary">Article of the Day</small>
 		  </a>
 		  <a href="#" class="list-group-item list-group-item-action">
 		    <div class="d-flex w-100 justify-content-between">
-		      <h5 class="mb-1">Updated Comment Count</h5>
-		      <small class="text-body-secondary">now</small>
+		      <h5 class="mb-1">“No act of kindness, no matter how small, is ever wasted”</h5>
 		    </div>
-		    <p class="mb-1">User.posts.comments.count()</p>
-		    <small class="text-body-secondary">Updated Commment Count</small>
+		    <p class="mb-1">Aesop</p>
+		    <small class="text-body-secondary">Quote of the Day</small>
 		  </a>
 		  <a href="#" class="list-group-item list-group-item-action">
 		    <div class="d-flex w-100 justify-content-between">
-		      <h5 class="mb-1">Updated Share Count</h5>
-		      <small class="text-body-secondary">now</small>
+		      <h5 class="mb-1">Learn Everyday:</h5>
 		    </div>
-		    <p class="mb-1">User.posts.shares.count()</p>
-		    <small class="text-body-secondary">Updated Share Count</small>
+		    <p class="mb-1">Make developing and improving desired skills a constant</p>
+		    <small class="text-body-secondary">Guidance of the Day</small>
 		  </a>
 		</div>
 
@@ -128,6 +126,8 @@
 
 	<!--Bootstrap JS-->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+	{% endblock page_content %}
 
 </body>
 </html>
