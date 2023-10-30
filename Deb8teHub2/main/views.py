@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from .models import Profile
+from .models import Post
 
 # Create your views here.
 def home(request):
@@ -68,8 +69,41 @@ def usr_prof(request):
 
 @login_required(login_url='login_form.html')
 def usr_feed(request):
-    user_prof = Profile.objects.get(user=request.user)
-    return render(request, "user_feed.html", {'user_prof':user_prof})
+
+    #If request comes from form submission
+    if request.method == 'POST':
+
+        #store create post variables
+        post_content = request.POST['content']
+
+        #generate post
+        post = Post.objects.create(content=post_content,owner=request.user)
+        post.save()
+
+        #return to page
+        user_prof = Profile.objects.get(user=request.user)
+
+        #attempts to grab user posts
+        try:
+            user_post = Post.objects.get(owner=request.user)
+        #make none if none exist
+        except Post.DoesNotExist:
+            user_post = None
+
+        return render(request, "user_feed.html", {'user_prof':user_prof,'user_post':user_post})
+
+    else:
+
+        user_prof = Profile.objects.get(user=request.user)
+
+        #attempts to grab user posts
+        try:
+            user_post = Post.objects.get(owner=request.user)
+        #make none if none exist
+        except Post.DoesNotExist:
+            user_post = None
+
+        return render(request, "user_feed.html", {'user_prof':user_prof,'user_post':user_post})
 
 def signin(request):
 

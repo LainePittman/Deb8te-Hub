@@ -70,3 +70,32 @@ footer {
 	margin-bottom: 2%;
 
 }
+
+.dropdown {
+
+	padding-left: 2%;
+
+}
+
+.dev {
+
+	padding-left: 5%;
+	padding-right: 5%;
+
+}
+
+.btn-cust {
+
+	background-color: #3D5583;
+	border-color: #3D5583;
+	color: white;	
+
+}
+
+.btn-cust:hover {
+
+	background-color: #3B8300;
+	border-color: #3B8300;
+	color: white;	
+
+}
