@@ -80,12 +80,11 @@ def usr_feed(request):
         post = Post.objects.create(content=post_content,owner=request.user)
         post.save()
 
-        #return to page
         user_prof = Profile.objects.get(user=request.user)
 
         #attempts to grab user posts
         try:
-            user_post = Post.objects.get(owner=request.user)
+            user_post = Post.objects.filter(owner=request.user)
         #make none if none exist
         except Post.DoesNotExist:
             user_post = None
@@ -98,7 +97,7 @@ def usr_feed(request):
 
         #attempts to grab user posts
         try:
-            user_post = Post.objects.get(owner=request.user)
+            user_post = Post.objects.filter(owner=request.user)
         #make none if none exist
         except Post.DoesNotExist:
             user_post = None
