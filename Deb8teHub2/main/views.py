@@ -50,22 +50,65 @@ def auth(request):
     else:
         return render(request, "auth_form.html", {})
 
-@login_required(login_url='login_form.html')
-def tmp(request):
-    return render(request, "tmp_page_dir.html", {})
-
 #@login_required ensures only logged in users can access page
 #redirects to login_form.html if not logged in already
 @login_required(login_url='login_form.html')
 def usr_home(request):
-    users_count = User.objects.count()
+    
+    #retrieve user profile
     user_prof = Profile.objects.get(user=request.user)
-    return render(request, "user_index.html", {'user_prof':user_prof,'users_count':users_count})
+
+    #attempts to grab all posts
+    try:
+        all_posts = Post.objects.all()
+    #make none if none exist
+    except Post.DoesNotExist:
+        all_posts = None
+
+    return render(request, "user_index.html", {'user_prof':user_prof, 'all_posts':all_posts})
 
 @login_required(login_url='login_form.html')
 def usr_prof(request):
-    user_prof = Profile.objects.get(user=request.user)
-    return render(request, "user_profile.html", {'user_prof':user_prof})
+
+    #If request comes from form submission
+    if request.method == 'POST':
+
+        #store manage details variables
+        username = request.POST['username']
+        email = request.POST['email']
+        password = request.POST['password']
+
+        #Catch username already exists exception
+        if User.objects.filter(username=username).exists():
+            messages.info(request, 'Username Taken')
+            return redirect('user_profile.html')
+        else:
+            #Catch email already used exception
+            if User.objects.filter(email=email).exists():
+                messages.info(request,'Email Taken')
+                return redirect('user_profile.html')
+            #Update user account based upon signup variables
+            else:
+                #Get request user
+                user = request.user
+                #Change user's attributes
+                user.username = username
+                user.email = email
+                user.set_password(password)
+                #Save changes to user object
+                user.save()
+
+                #logout user for them to reauthenticate
+                logout(request)
+                return redirect('login_form.html')
+                
+
+
+
+
+    else:
+        user_prof = Profile.objects.get(user=request.user)
+        return render(request, "user_profile.html", {'user_prof':user_prof})
 
 @login_required(login_url='login_form.html')
 def usr_feed(request):
