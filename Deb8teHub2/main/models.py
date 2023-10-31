@@ -11,7 +11,6 @@ class Profile(models.Model):
     friend_count = models.IntegerField(default=0)
     like_count = models.IntegerField(default=0)
     comment_count = models.IntegerField(default=0)
-    shares_count = models.IntegerField(default=0)
 
     def __str__(self):
         return self.user.username
@@ -24,7 +23,6 @@ class Post(models.Model):
     #on_delete=models.CASCADE ensures posts will be deleted when owner is
     owner = models.ForeignKey(User, on_delete=models.CASCADE) 
     likes = models.IntegerField(default=0)
-    shares = models.IntegerField(default=0)
 
     def __str__(self):
         return self.owner.username
