@@ -1,0 +1,101 @@
+html, body {
+
+	width: 100%;
+	height: 100%;
+	background-color: #91A0BE;
+
+}
+
+.nav-cust {
+
+	background-color: #3D5583;
+
+}
+
+.navbar-brand {
+
+	color: white;
+	cursor: context-menu;
+
+}
+
+.navbar-brand:hover {
+
+	color: white;
+
+}
+
+.nav-link {
+
+	color: white;
+
+}
+
+.btn-outline {
+
+	border-color: white;
+	color: white;
+
+}
+
+.btn-outline:hover {
+
+	background-color: white;
+	color: #3D5583;
+
+}
+
+.navbar-toggler {
+
+	background-color: white;
+
+}
+
+footer {
+
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #3D5583;
+  color: white;
+  text-align: center;
+  padding-top: 0.25%;
+  padding-bottom: 0.25%;
+
+}
+
+.col-xl-12 {
+
+	margin-bottom: 2%;
+
+}
+
+.dropdown {
+
+	padding-left: 2%;
+
+}
+
+.dev {
+
+	padding-left: 5%;
+	padding-right: 5%;
+
+}
+
+.btn-cust {
+
+	background-color: #3D5583;
+	border-color: #3D5583;
+	color: white;	
+
+}
+
+.btn-cust:hover {
+
+	background-color: #3B8300;
+	border-color: #3B8300;
+	color: white;	
+
+}
