@@ -8,7 +8,33 @@
 	<!--Bootstrap CSS-->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 	{% block style_link %}
-	<link rel="stylesheet" type="text/css" href="../static/post_comment.css">
+	<link rel="stylesheet" type="text/css" href="../../static/post_comment.css">
+	<style>
+
+		.comment_btn {
+
+			background-color: #3D5583;
+			border-color: #91A0BE;
+			color: white;
+		
+		
+		}
+		
+		.comment_btn:hover {
+		
+			background-color: #3B8300;
+			border-color: #3B8300;
+			color: white;	
+		
+		}
+
+		.card-title {
+
+			font-weight: normal;
+
+		}
+
+	</style>
 	{% endblock style_link %}
 </head>
 <body>
@@ -49,16 +75,14 @@
 
 	<!--Bootstrap Row Container-->
 	<div class="container">
+
 		<div class="row">	
   
-		  
+		  <div class="col-xl-12 d-flex justify-content-center text-center">
   
-		  <div class="col-xl-4 d-flex justify-content-center text-center">
-  
-			  <div class="card" style="width: 30rem; margin-bottom:2%">
+			<div class="card" style="width: 30rem; margin-top:6%">
 				<div class="card-body">
-				  <h2 class="card-title">{{post.content}}</h2>
-				  <p>Posted by: {{post.owner.username}}</p>
+				  <h4 class="card-title">{{post.content}}</h2>
 				</div>
 				<ul class="list-group list-group-flush">
 				  <li class="list-group-item"><strong>Poster: </strong> {{post.owner.username}}</li>
@@ -66,26 +90,38 @@
 				  <li class="list-group-item"><strong>Likes: </strong> {{post.likes}}</li>
 				</ul>
 
-				{% for comment in comments %}
+				<div style="margin-top:5%">
 
-				<p>{{comment.commenter.username}} said: {{comment.com_comment}}</p>
+					<!--If comments exists, display them-->
+					{% if comments %}
+						{% for comment in comments %}
+						<p style="margin-bottom:0.75%"><strong>{{comment.commenter.username}}:</strong> {{comment.com_comment}}</p>
+						{% endfor %}
+					{% else %}
+						<p>Be the first to comment!</p>
+					{% endif %}
 
-				{% endfor %}
+					<hr>
 
-				<form method="post" action="{% url 'add_comment' postID=post.postID %}">
+				</div>
+
+				<form method="post" action="{% url 'add_comment' postID=post.postID %}" style="margin-top:5%; margin-bottom:5%">
 					{% csrf_token %}
-					<label for="comment">Add your comment:</label>
-					<textarea name="comment" required></textarea>
-					<button type="submit">Submit Comment</button>
+					<label for="comment"><strong>Add Comment:</strong></label>
+					<br><br>
+					<textarea name="comment" required style="width: 75%"></textarea>
+					<br><br>
+					<button type="submit" class="btn comment_btn">Submit Comment</button>
 				</form>
 			
-			  </div>
+			</div>
   
 		  </div>
   
 		  
   
 		</div>
+
 	  </div>
   
 
