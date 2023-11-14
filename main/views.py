@@ -217,3 +217,15 @@ def add_comment(request, postID):
 
     return redirect('post_comment', postID=postID)
 
+
+def search(request):
+    if request.method == 'POST':
+        user_search = request.POST.get('user_search')
+        search_results = Profile.objects.filter(user__username__icontains=user_search)
+
+        return render(request, "search_results.html", {'search_results': search_results})
+
+    return render(request, "user_profile.html")
+
+
+    
