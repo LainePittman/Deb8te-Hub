@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Deb8teHub - User Feed</title>
+	<title>Deb8teHub - Search Results</title>
 	<!--Bootstrap CSS-->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 	{% block style_link %}
@@ -49,72 +49,35 @@
 	<br>
 	<br>
 
-	<div class="dropdown">
-		<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color:#3D5583;border-color:#3D5583">
-		  Create Post
-		</button>
-		<ul class="dropdown-menu">
-		  <li>
+	<div class="containter mt-4">
+		<h1 class="mb-4">Search Results</h1>
 
-			<!--Bootstrap Form-->
-			<div class="dev">
-
-				<!--action is blank to send data back to auth_form.html-->
-				<!--method is POST to hide sensitive data from URL-->
-				<form action="" method="POST" enctype="multipart/form-data">
-				<!--Needed when using POST-->
-				{% csrf_token %}
-				<div class="mb-3">
-					<label for="examplePostContent1" class="form-label">Post Content</label>
-					<input type="text" name="content" class="form-control" id="examplePostContent1" required>
-				</div>
-				<button type="submit" class="btn btn-cust">Submit</button>
-				
-				</form>
-
-				<br>
+		{% if search_results %}
+			<div class="row">
+				{% for result in search_results %}
+					<div class="col-md-4 mb-4">
+						<div class="card">
+							<img src="../static/profile.png" class="card-img-top" alt="Profile Image">
+							<div class="card-body">
+								<h5 class="card-title">{{ result.user.username }}</h5>
+								<p class="card-text">
+									Friend Count: {{ result.friend_count}}<br>
+									Like Count: {{ result.like_count }}<br>
+									Comment Count: {{ result.comment_count }}
+								</p>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
 			</div>
-
-		  </li>
-		</ul>
-	  </div>
-
-	  <br>
-
-	<!--Bootstrap Row Container-->
-	<div class="container">
-	  <div class="row">
-
-		{% for post in user_post %}
-
-	    <div class="col-xl-12 d-flex justify-content-center text-center">
-
-			<div class="card" style="width: 30rem;">
-			  <div class="card-body">
-			    <h5 class="card-title">{{post.content}}</h5>
-			  </div>
-			  <ul class="list-group list-group-flush">
-				<li class="fa-solid fa-circle-user fa-lg, list-group-item" style="color: #000000"> {{post.owner.username}}</li>
-				<li class="fa-regular fa-heart fa-lg, list-group-item" style="color: #000000;"> {{post.likes}}</li>
-				
-			  </ul>
-			  <div class="card-body">
-				<a class="fa-regular fa-thumbs-up fa-2xl, btn" style="color: #000000;"></a>
-				<a href="{% url 'post_comment' postID=post.postID %}" class="fa-sharp fa-solid fa-comment fa-2xl, btn" style="color: #000000;"></i></a>
-				
-
-			  </div>
-			</div>
-
-	    </div>
-
-		{% endfor %}
-
-	  </div>
+			{% else %}
+			<p class="mt-4">No results found.</p>
+			{% endif %}
 	</div>
 
 
-	<footer>Deb8teHub &copy;</footer>
+
+	<footer class="mt-5">Deb8teHub &copy;</footer>
 
 	<!--Bootstrap JS-->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
