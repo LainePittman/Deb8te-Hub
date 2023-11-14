@@ -35,3 +35,6 @@ class Comment(models.Model):
     commentID = models.ForeignKey(Post, on_delete=models.CASCADE, default="defcom_ID")
     commenter = models.ForeignKey(User, on_delete=models.CASCADE)
     com_comment = models.CharField(max_length=100, default="default_comment")
+
+class Search(models.Model):
+    user_search = models.CharField(max_length=50)

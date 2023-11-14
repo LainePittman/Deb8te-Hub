@@ -13,4 +13,5 @@ urlpatterns = [
     path('post_comment.html', views.usr_feed, name='comment'),
     path('post_comment/<uuid:postID>/', views.post_comment, name='post_comment'),
     path('add_comment/<uuid:postID>/', views.add_comment, name='add_comment'),
+    path('search_results.html', views.search, name='search_results'),
 ]
