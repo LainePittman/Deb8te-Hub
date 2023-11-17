@@ -49,35 +49,38 @@
 	<br>
 	<br>
 
-	<div class="containter mt-4">
-		<h1 class="mb-4">Search Results</h1>
+	<div class="container">
+		<h2 style="margin-bottom:5%">Search Results</h1>
 
 		{% if search_results %}
 			<div class="row">
 				{% for result in search_results %}
-					<div class="col-md-4 mb-4">
-						<div class="card">
+					<div class="col-xl-12 d-flex align-items-center justify-content-center">
+						<div class="card" style="width:36rem">
 							<img src="../static/profile.png" class="card-img-top" alt="Profile Image">
-							<div class="card-body">
-								<h5 class="card-title">{{ result.user.username }}</h5>
-								<p class="card-text">
-									Friend Count: {{ result.friend_count}}<br>
-									Like Count: {{ result.like_count }}<br>
-									Comment Count: {{ result.comment_count }}
-								</p>
+							<div class="card-body" style="padding:0">
+								<h5 class="card-title" style="text-align:center">{{ result.user.username }}</h5>
+								<hr>
+								<div style="margin:2% auto; width: 20%; white-space: nowrap">
+									<p class="card-text" style="text-align:justify">
+										Friend Count: {{ result.friend_count}}<br>
+										Like Count: {{ result.like_count }}<br>
+										Comment Count: {{ result.comment_count }}
+									</p>
+								</div>
 							</div>
 						</div>
 					</div>
 					{% endfor %}
 			</div>
 			{% else %}
-			<p class="mt-4">No results found.</p>
+			<p style="text-align:center">No results found.</p>
 			{% endif %}
 	</div>
 
 
 
-	<footer class="mt-5">Deb8teHub &copy;</footer>
+	<footer>Deb8teHub &copy;</footer>
 
 	<!--Bootstrap JS-->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
