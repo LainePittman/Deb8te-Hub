@@ -66,3 +66,20 @@ footer {
 
 
 }
+
+.comment {
+
+	margin-bottom: 0.75%;
+	margin-top: 0.75%;
+	text-align: justify;
+
+}
+
+#comment_section {
+
+	margin-top: 2%;
+	margin-bottom: 2%;
+	margin-left: auto;
+	margin-right: auto;
+
+}
