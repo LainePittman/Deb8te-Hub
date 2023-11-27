@@ -227,5 +227,20 @@ def search(request):
 
     return render(request, "user_profile.html")
 
+def forgot_password(request):
+
+    if request.method == 'POST':
+        
+        
+        
+        email = request.POST['email']
+        password = request.POST['password']
+        user_prof = Profile.objects.get(user=request.user)
+        
+        
+        user.save()
+        logout(request)
+        return
+    return render(request, "forgot_password.html")
 
     

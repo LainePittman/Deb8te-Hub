@@ -13,19 +13,13 @@
 	<link rel="stylesheet" type="text/css" href="../../static/post_comment.css">
 	<style>
 
-		.comment_btn {
-
-			background-color: #3D5583;
-			border-color: #91A0BE;
-			color: white;
-
-
-		}
+		
 
 		.comment_btn:hover {
 
-			background-color: #3B8300;
-			border-color: #3B8300;
+			display: inline-block;
+			background-color: #ffffff;
+			border-color: #000000;
 			color: white;	
 
 		}
@@ -34,6 +28,18 @@
 
 			font-weight: normal;
 
+		}
+		
+		.comment_btn {
+			
+			background-color: #8787876f;
+			display: inline-block;
+			margin: 6px 4px;
+			border-radius: 5px;
+			transition: 0.3s;
+			padding: 5px 12px;
+			cursor: pointer;
+			
 		}
 
 	</style>
@@ -97,17 +103,21 @@
 				  <li class="list-group-item"><strong>Likes: </strong> {{post.likes}}</li>
 				</ul>
 
+				<li class="list-group">
 				{% for comment in comments %}
 
-				<p>{{comment.commenter.username}} said: {{comment.com_comment}}</p>
+				<p><strong>{{comment.commenter.username}}</strong>: {{comment.com_comment}}</p>
 
 				{% endfor %}
-
+				</li>
+				
+				
+				
 				<form method="post" action="{% url 'add_comment' postID=post.postID %}">
 					{% csrf_token %}
-					<label for="comment">Add your comment:</label>
-					<textarea name="comment" required></textarea>
-					<button type="submit">Submit Comment</button>
+					<label for="comment">Comment:</label>
+					<textarea name="comment" wrap="soft" required></textarea>
+					<button style="color:rgb(0, 0, 0)" class="comment_btn" type="submit">Submit Comment</button>
 				</form>
 			
 			  </div>
