@@ -30,10 +30,11 @@
 				<a class="fa-solid fa-house fa-lg, btn" style="color: #ffffff;" href="{% url 'usr_home' %}"></a>
 	        </li>
 	      </ul>
-	      <form class="d-flex" role="search">
-	        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-	        <button class="btn btn-outline" type="submit">Search</button>
-	      </form>
+	      <form class="d-flex" role="search" method="POST" action="{% url 'search_results' %}">
+			{% csrf_token %}
+			<input class="form-control me-2" name="user_search" type="search" placeholder="Search" aria-label="Search">
+			<button class="btn btn-outline" type="submit">Search</button>
+		  </form>
 	    </div>
 	  </div>
 	</nav>
@@ -67,13 +68,15 @@
 		    <label for="exampleInputPassword1" class="form-label">Password</label>
 		    <input type="password" name="password" class="form-control" id="exampleInputPassword1" required>
 		  </div>
+		 <div> 
 		  <button type="submit" class="btn btn-cust">Submit</button>
-		  
+		  <a class="btn btn-secondary float-end" href="login_form.html">Login</a>
+		</div>
 		</form>
 
 		<br>
 
-		<a href="login_form.html">Already have an account? Login here</a>
+		
 	</div>
 
 	<footer>Deb8teHub &copy;</footer>
