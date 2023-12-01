@@ -29,7 +29,16 @@ class Post(models.Model):
 
 class Friend(models.Model):
     user = models.ForeignKey(User, related_name='sender', on_delete=models.CASCADE)
+    user = models.CharField(max_length=100) #added by bo
     friend = models.ForeignKey(User, related_name='receiver', on_delete=models.CASCADE)
+    friend = models.CharField(max_length=100) #added by bo
+
+    #added by bo
+    def __str__(self):
+        return self.user
+    
+
+
 
 class Comment(models.Model):
     commentID = models.ForeignKey(Post, on_delete=models.CASCADE, default="defcom_ID")
