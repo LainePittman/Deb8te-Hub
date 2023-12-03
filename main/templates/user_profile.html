@@ -53,6 +53,18 @@
 		{% endfor %}
 	</div>
 
+	
+	
+    <form method="post" action="{% url 'accept_friend_request'%}" style="display: inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-success btn-sm">Accept</button>
+    </form>
+    <form method="post" action="{% url 'decline_friend_request' %}" style="display: inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger btn-sm">Decline</button>
+    </form>
+
+	
 	<!--Bootstrap Row Container-->
 	<div class="container">
 	  <div class="row">

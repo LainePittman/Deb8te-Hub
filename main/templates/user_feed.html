@@ -36,6 +36,19 @@
 			<li class="nav-item">
 				<a class="fa-solid fa-arrow-right-to-bracket fa-lg, btn" style="color: #ffffff;" href="{% url 'logout' %}"></a>
 	       </li>
+		   <li>
+			<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#friendRequestForm" aria-expanded="false" aria-controls="friendRequestForm">
+				<i class="fa-solid fa-user-group fa-lg"></i> Friends
+			</button>
+			</li>
+			<div class="collapse" id="friendRequestForm">
+				<form method="post" action="{% url 'usr_feed' %}">
+					{% csrf_token %}
+					<label for="friend_username">Add Friend:</label>
+					<input type="text" name="friend_username" required>
+					<button type="submit">Add Friend</button>
+				</form>
+			</div>
 	      </ul>
 	      <form class="d-flex" role="search" method="POST" action="{% url 'search_results' %}">
 			{% csrf_token %}
@@ -80,6 +93,17 @@
 	  </div>
 
 	  <br>
+
+	  <div class="card" style="width: 18rem; margin-left: auto; margin-right: 10px;">
+		<div class="card-header">
+			<h2>Friends:</h2>
+		</div>
+		<ul class="list-group list-group-flush">
+			{% for friend in friends %}
+				<li class="list-group-item">{{ friend.friend.username }}</li>
+			{% endfor %}
+		</ul>
+	</div>
 
 	<!--Bootstrap Row Container-->
 	<div class="container">

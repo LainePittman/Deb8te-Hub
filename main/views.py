@@ -5,9 +5,15 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from .models import Profile
-from .models import Post
-from .models import Comment
+from .models import Profile, Friend, Comment, Post, FriendRequest
+
+def accept_friend_request(request, request_id):
+    # Your implementation for accepting friend request
+    return HttpResponse(f'Accept friend request with ID {request_id}')
+
+def decline_friend_request(request, request_id):
+    # Your implementation for declining friend request
+    return HttpResponse(f'Decline friend request with ID {request_id}')
 
 
 # Create your views here.
@@ -73,71 +79,83 @@ def usr_home(request):
 
 @login_required(login_url='login_form.html')
 def usr_prof(request):
+    user_prof = Profile.objects.get(user=request.user)
+    
 
-    #If request comes from form submission
+    # Handle accepting or declining friend requests
     if request.method == 'POST':
+        if 'accept_request' in request.POST or 'decline_request' in request.POST:
+            friend_request_id = request.POST.get('friend_request_id')
 
-        #store manage details variables
-        username = request.POST['username']
-        email = request.POST['email']
-        password = request.POST['password']
+            try:
+                friend_request = FriendRequest.objects.get(id=friend_request_id)
 
-        #Catch username already exists exception
-        if User.objects.filter(username=username).exists():
-            messages.info(request, 'Username Taken')
-            return redirect('user_profile.html')
-        else:
-            #Catch email already used exception
-            if User.objects.filter(email=email).exists():
-                messages.info(request,'Email Taken')
-                return redirect('user_profile.html')
-            #Update user account based upon signup variables
-            else:
-                #Get request user
-                user = request.user
-                #Change user's attributes
-                user.username = username
-                user.email = email
-                user.set_password(password)
-                #Save changes to user object
-                user.save()
+                if friend_request.receiver == request.user:
+                    if 'accept_request' in request.POST:
+                        # Accept the friend request
+                        Friend.objects.create(user=request.user, friend=friend_request.sender)
+                        friend_request.accepted = True
+                        friend_request.save()
+                        messages.success(request, f"You are now friends with {friend_request.sender.username}.")
+                    elif 'decline_request' in request.POST:
+                        # Decline the friend request
+                        friend_request.delete()
+                        messages.info(request, f"You declined the friend request from {friend_request.sender.username}.")
+                else:
+                    messages.error(request, "Invalid friend request.")
 
-                #logout user for them to reauthenticate
-                logout(request)
-                return redirect('login_form.html')
-                
+            except FriendRequest.DoesNotExist:
+                messages.error(request, "Friend request not found.")
 
+    # Get the user's friend requests
+    friend_requests = FriendRequest.objects.filter(receiver=request.user, accepted=False)
 
-
-
-    else:
-        user_prof = Profile.objects.get(user=request.user)
-        return render(request, "user_profile.html", {'user_prof':user_prof})
+    return render(request, "user_profile.html", {'user': request.user, 'user_prof': user_prof, 'friend_requests': friend_requests})
 
 @login_required(login_url='login_form.html')
 def usr_feed(request):
 
+    user_prof = Profile.objects.get(user=request.user)
+   
+    # Attempt to grab user posts
+    try:
+        user_post = Post.objects.filter(owner=request.user)
+    # Make none if none exist
+    except Post.DoesNotExist:
+        user_post = None
+    
     #If request comes from form submission
     if request.method == 'POST':
+        if 'content' in request.POST:
+            # Store create post variables
+            post_content = request.POST.get('content', '')
 
-        #store create post variables
-        post_content = request.POST['content']
+            # Generate post
+            post = Post.objects.create(content=post_content, owner=request.user)
+            post.save()
 
-        #generate post
-        post = Post.objects.create(content=post_content,owner=request.user)
-        post.save()
-        
+        elif 'friend_username' in request.POST:
 
-        user_prof = Profile.objects.get(user=request.user)
+            # Handle friend request
+            friend_username = request.POST['friend_username']
 
-        #attempts to grab user posts
-        try:
-            user_post = Post.objects.filter(owner=request.user)
-        #make none if none exist
-        except Post.DoesNotExist:
-            user_post = None
+            try:
+                friend_user = User.objects.get(username= friend_username)
+
+                #Check if already friends
+                if not Friend.objects.filter(user=request.user, friend=friend_user).exists():
+                    Friend.objects.create(user=request.user, friend=friend_user)
+
+            except User.DoesNotExist:
+                messages.info(request, "No one's here")\
+
+            except IntegrityError:
+                #already friends
+                messages.info(request, "Friend Request Already Sent")
+
 
         return render(request, "user_feed.html", {'user_prof':user_prof,'user_post':user_post})
+        
 
     elif request.method == 'POST' and 'comment' in request.POST:
 

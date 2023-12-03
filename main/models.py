@@ -35,7 +35,7 @@ class Friend(models.Model):
 
     #added by bo
     def __str__(self):
-        return self.user
+        return self.user.username
     
 
 
@@ -47,3 +47,13 @@ class Comment(models.Model):
 
 class Search(models.Model):
     user_search = models.CharField(max_length=50)
+
+
+class FriendRequest(models.Model):
+    sender = models.ForeignKey(User, related_name='sender_requests', on_delete=models.CASCADE)
+    receiver = models.ForeignKey(User, related_name='receiver_requests', on_delete=models.CASCADE)
+    accepted = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.sender.username} -> {self.receiver.username}"
