@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Profile
 from .models import Post
 from .models import Comment
+from .models import Share
 from datetime import datetime
 
 
@@ -167,7 +168,14 @@ def usr_feed(request):
         except Post.DoesNotExist:
             user_post = None
 
-        return render(request, "user_feed.html", {'user_prof':user_prof,'user_post':user_post})
+        #attempts to grab user shares
+        try:
+            user_share = Share.objects.filter(sharer=request.user)
+        #naje none if none exist
+        except Share.DoesNotExist:
+            user_share = None
+
+        return render(request, "user_feed.html", {'user_prof':user_prof,'user_post':user_post,'user_share':user_share})
 
 def signin(request):
 
@@ -250,6 +258,16 @@ def edit_post(request, postID):
         edit_time = datetime.now()
     
         return render(request, "edit_post.html", {'post': post, 'timestamp': edit_time})
+
+@login_required(login_url='login_form.html') 
+def share_post(request, postID):
+
+
+    post = get_object_or_404(Post, postID=postID)
+
+    Share.objects.create(sharer=request.user, share=post)
+    
+    return redirect('usr_feed')
 
 
 def search(request):
