@@ -73,8 +73,12 @@
 					<li class="list-group-item"> <i class="fa-regular fa-clock fa-lg" style="margin-right:1%"></i> {{post.timestamp}}</li>
 				</ul>
 				<div class="card-body">
-					<a class="fa-regular fa-thumbs-up fa-2xl, btn" style="color: #000000;"></a>
+				  <a class="fa-regular fa-thumbs-up fa-2xl, btn" style="color: #000000;"></a>
 				  <a href="{% url 'post_comment' postID=post.postID %}" class="fa-sharp fa-solid fa-comment fa-2xl, btn" style="color: #000000;"></i></a>
+				  <!--This ensures that users can't share their own posts-->
+				  {% if post.owner.username != user.username %}
+				  <a href="{% url 'share_post' postID=post.postID %}" class="fa-sharp fa-solid fa-share fa-2xl, btn" style="color: #000000;"></i></a>
+				  {% endif %}
 				  
 
 				</div>

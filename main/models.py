@@ -47,3 +47,10 @@ class Comment(models.Model):
 
 class Search(models.Model):
     user_search = models.CharField(max_length=50)
+
+class Share(models.Model):
+    #User who has shared a post
+    sharer = models.ForeignKey(User, on_delete=models.CASCADE)
+    #Post that the users has shared
+    share = models.ForeignKey(Post, on_delete=models.CASCADE)
+    #This creates a 1 to M relationship where 1 user may have many shared posts
