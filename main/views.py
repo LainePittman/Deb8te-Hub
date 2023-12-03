@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Profile
 from .models import Post
 from .models import Comment
+from datetime import datetime
 
 
 # Create your views here.
@@ -198,6 +199,7 @@ def leave(request):
     logout(request)
     return redirect('login_form.html')
 
+@login_required(login_url='login_form.html') 
 def post_comment(request, postID):
 
     post = get_object_or_404(Post, postID=postID)
@@ -206,7 +208,7 @@ def post_comment(request, postID):
 
     return render(request, "post_comment.html", {'post': post, 'comments': comments})
 
-
+@login_required(login_url='login_form.html') 
 def add_comment(request, postID):
 
     post = get_object_or_404(Post, postID=postID)
@@ -216,6 +218,38 @@ def add_comment(request, postID):
     Comment.objects.create(commentID=post, commenter=request.user, com_comment=comment_content)
 
     return redirect('post_comment', postID=postID)
+
+@login_required(login_url='login_form.html') 
+def delete_post(request, postID):
+
+    post = get_object_or_404(Post, postID=postID)
+    post.delete()
+
+    return redirect('usr_feed')
+
+@login_required(login_url='login_form.html') 
+def edit_post(request, postID):
+
+    if request.method == 'POST':
+
+        edit_content = request.POST['edit_content']
+
+        post=get_object_or_404(Post, postID=postID)
+        edit_time = datetime.now()
+        post.timestamp = edit_time
+        post.content = edit_content
+        post.save()
+
+        return redirect('edit_post', postID=postID)
+
+    else:
+
+
+        post = get_object_or_404(Post, postID=postID)
+
+        edit_time = datetime.now()
+    
+        return render(request, "edit_post.html", {'post': post, 'timestamp': edit_time})
 
 
 def search(request):
