@@ -8,14 +8,30 @@ Hayden Gibson / hcg107 / hayden077 / Frontened Dev
 Description
 -----------------------------------------------------
 Deb8Hub is the next place for users to intelligently debate online about certain ongoing world problems. The objective for this social media application is for users to debate about
-trending global topics sensibly without using vulgar language and promoting stimulating and healthy conversations. The features will include censoring and banning
+trending global topics sensibly without using vulgar language and promoting stimulating and healthy conversations.
 -----------------------------------------------------
-Coding Language Being Used: Python
+Primary Coding Language Used: Python
 -----------------------------------------------------
-Techniques: We will be using a database and a framework; however,
-at the time we are unaware of what exactly will be used
+Techniques/Tools
 -----------------------------------------------------
-Objectives: To create a fully functional social media application that will allow its users to interact by creating posts, writing comments on other user's posts, making friends, and uploading to a timeline.
+We will be using the Django framework to build the backend for our web application and properly deliver web pages upon necessary conditions being met
+The frontend of our application will be built using Bootstrap for its simple and efficient CSS elements with JS support 
+
+Front-End:
+HTML
+CSS
+JS
+
+Back-End:
+Django
+Python
+SQLite
+
+Additional Styling Tools:
+Font Awesome Icons: https://fontawesome.com/icons
+Paletton: https://paletton.com/
+-----------------------------------------------------
+Objective: To create a fully functional social media application that will allow its users to interact by creating posts, writing comments on other user's posts, making friends, and uploading to a timeline.
 -----------------------------------------------------
 Features - Users will have the ability to:
 * Create personal accounts through which they will authenticate
@@ -23,9 +39,9 @@ Features - Users will have the ability to:
 * Send and receive user friend requests
 * Post updates as well as make appropriate edits to their timelines
 * Comment and engage with friendly users on platform
-
-
-
-
+-----------------------------------------------------
+Helpful Links
+-----------------------------------------------------
 https://docs.google.com/document/d/16iwFlI2ZgkdXCfLPw1wu3x09L28OeC0T/edit?usp=sharing&ouid=106709538712253693452&rtpof=true&sd=true  //  link for Intro to SE SRS Template
 https://realpython.com/django-social-network-1/#step-1-set-up-the-base-project // link for creating a social website using python and a web framework named django
+https://www.youtube.com/watch?v=xSUm6iMtREA // link for full tutorial on building a basic social media web application using Django
