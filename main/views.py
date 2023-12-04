@@ -139,7 +139,14 @@ def usr_feed(request):
         except Post.DoesNotExist:
             user_post = None
 
-        return render(request, "user_feed.html", {'user_prof':user_prof,'user_post':user_post})
+        #attempts to grab user shares
+        try:
+            user_share = Share.objects.filter(sharer=request.user)
+        #make none if none exist
+        except Share.DoesNotExist:
+            user_share = None
+
+        return render(request, "user_feed.html", {'user_prof':user_prof,'user_post':user_post,'user_share':user_share})
 
     elif request.method == 'POST' and 'comment' in request.POST:
 
@@ -171,7 +178,7 @@ def usr_feed(request):
         #attempts to grab user shares
         try:
             user_share = Share.objects.filter(sharer=request.user)
-        #naje none if none exist
+        #make none if none exist
         except Share.DoesNotExist:
             user_share = None
 
@@ -265,8 +272,25 @@ def share_post(request, postID):
 
     post = get_object_or_404(Post, postID=postID)
 
-    Share.objects.create(sharer=request.user, share=post)
+    existing = Share.objects.filter(sharer=request.user, share=post)
+
+    if existing:
+        return redirect('usr_feed')
+    else:
+        Share.objects.create(sharer=request.user, share=post)
+        return redirect('usr_feed')
     
+@login_required(login_url='login_form.html') 
+def delete_share(request, postID):
+
+
+    post = get_object_or_404(Post, postID=postID)
+    
+    share = Share.objects.filter(sharer=request.user, share=post)
+
+    if share:
+        share.delete()
+
     return redirect('usr_feed')
 
 

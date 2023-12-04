@@ -11,6 +11,7 @@ class Profile(models.Model):
     friend_count = models.IntegerField(default=0)
     like_count = models.IntegerField(default=0)
     comment_count = models.IntegerField(default=0)
+    friends = models.ManyToManyField("Profile", blank=True)
 
     def __str__(self):
         return self.user.username
@@ -27,15 +28,11 @@ class Post(models.Model):
     def __str__(self):
         return self.owner.username
 
-class Friend(models.Model):
-    user = models.ForeignKey(User, related_name='sender', on_delete=models.CASCADE)
-    user = models.CharField(max_length=100) #added by bo
-    friend = models.ForeignKey(User, related_name='receiver', on_delete=models.CASCADE)
-    friend = models.CharField(max_length=100) #added by bo
-
-    #added by bo
-    def __str__(self):
-        return self.user
+class FriendRequest(models.Model):
+    #User who has sent the request
+    sender = models.ForeignKey(User, related_name='sender', on_delete=models.CASCADE)
+    #User who has received the request
+    receiver = models.ForeignKey(User, related_name='receiver', on_delete=models.CASCADE)
     
 
 

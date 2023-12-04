@@ -127,6 +127,7 @@
 			  <div class="card-body">
 				<a class="fa-regular fa-thumbs-up fa-2xl, btn" style="color: #000000;"></a>
 				<a href="{% url 'post_comment' postID=share.share.postID %}" class="fa-sharp fa-solid fa-comment fa-2xl, btn" style="color: #000000;"></i></a>
+				<a href="{% url 'delete_share' postID=share.share.postID %}" class="fa-sharp fa-solid fa-remove btn trash-btn" style="color: #000000;"></i></a>
 			  </div>
 			</div>
 
